@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
+  imports: [RouterOutlet],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'angular-colegio';
+
 }

@@ -1,0 +1,73 @@
+
+
+    <app-navbar></app-navbar>
+
+    <body class="bg-white">
+        <section class="min-h-screen flex flex-col md:flex-row">
+          
+          <!-- Columna izquierda: Imagen del logo -->
+          <div class="hidden md:flex md:w-1/2 bg-gray-100 items-center justify-center p-4">
+            <img src="logo.png" alt="Imagen Login" class="max-w-full max-h-full object-contain">
+          </div>
+      
+          <!-- Columna derecha: Formulario de inicio de sesión -->
+          <div class="flex flex-1 items-center justify-center bg-gray-100 p-6">
+            <div class="w-full max-w-md p-8 space-y-6 bg-white shadow-xl shadow-cyan-500/30 rounded-lg">
+              <h1 class="text-2xl font-bold text-blue-400 text-center">Inicio de Sesión</h1>
+              <form [formGroup]="Loginform" class="space-y-4" (ngSubmit)="onSubmit()">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-blue-500">Correo Electrónico</label>
+                  <input 
+                  type="CorreoElectronico" 
+                  name="CorreoElectronico" 
+                  id="CorreoElectronico" 
+                  required 
+                  formControlName="CorreoElectronico"
+                  class="w-full mt-1 p-2.5 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                  @if (CorreoElectronico?.touched && CorreoElectronico?.invalid) {
+                    <div class="text-red-500 text-sm mt-1">
+                      @if (CorreoElectronico?.errors?.['required']) {
+                        <p>El campo Correo Electrónico es requerido.</p>
+                      }
+                      @if (CorreoElectronico?.errors?.['email']) {
+                        <p>El formato del correo electrónico no es válido.</p>
+                      }
+                    </div>
+                  }
+                </div>
+                <div>
+                  <label for="password" class="block text-sm font-medium text-blue-500">Contraseña</label>
+                  <input 
+                  type="Password" 
+                  name="Password" 
+                  id="Password" 
+                  required
+                  formControlName="Password" 
+                  class="w-full mt-1 p-2.5 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    @if (Password?.touched && Password?.invalid){
+                      <div class="text-red-500 text-sm mt-1">
+                        @if (Password?.errors?.['required']) {
+                          <p>El campo Contraseña es requerido.</p>
+                        }
+                        @if (Password?.errors?.['minlength']) {
+                          <p>La contraseña debe tener al menos 8 caracteres.</p>
+                        }
+                      </div>
+                    }
+                </div>
+                <div>
+                  <a  class="text-blue-400 hover:text-blue-600" href="">Olvidaste tu Contraseña</a>
+                </div>
+                <button 
+                type="submit"
+                class="w-full bg-blue-600 transition duration-300 ease-in-out hover:bg-blue-700 text-white font-medium rounded-lg px-5 py-2.5 cursor-pointer">
+                  Iniciar Sesión
+                </button>
+                
+              </form>
+            </div>
+          </div>
+        </section>
+      </body>
+      
+
