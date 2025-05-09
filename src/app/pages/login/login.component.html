@@ -16,40 +16,40 @@
               <h1 class="text-2xl font-bold text-blue-400 text-center">Inicio de Sesión</h1>
               <form [formGroup]="Loginform" class="space-y-4" (ngSubmit)="onSubmit()">
                 <div>
-                  <label for="email" class="block text-sm font-medium text-blue-500">Correo Electrónico</label>
+                  <label for="correo" class="block text-sm font-medium text-blue-500">Correo Electrónico</label>
                   <input 
-                  type="CorreoElectronico" 
-                  name="CorreoElectronico" 
-                  id="CorreoElectronico" 
+                  type="email" 
+                  name="correo" 
+                  id="correo" 
                   required 
-                  formControlName="CorreoElectronico"
+                  formControlName="correo"
                   class="w-full mt-1 p-2.5 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                  @if (CorreoElectronico?.touched && CorreoElectronico?.invalid) {
+                  @if (correo?.touched && correo?.invalid) {
                     <div class="text-red-500 text-sm mt-1">
-                      @if (CorreoElectronico?.errors?.['required']) {
+                      @if (correo?.errors?.['required']) {
                         <p>El campo Correo Electrónico es requerido.</p>
                       }
-                      @if (CorreoElectronico?.errors?.['email']) {
+                      @if (correo?.errors?.['correo']) {
                         <p>El formato del correo electrónico no es válido.</p>
                       }
                     </div>
                   }
                 </div>
                 <div>
-                  <label for="password" class="block text-sm font-medium text-blue-500">Contraseña</label>
+                  <label for="contrasena" class="block text-sm font-medium text-blue-500">Contraseña</label>
                   <input 
-                  type="Password" 
-                  name="Password" 
-                  id="Password" 
+                  type="password" 
+                  name="contrasena" 
+                  id="contrasena" 
                   required
-                  formControlName="Password" 
+                  formControlName="contrasena" 
                   class="w-full mt-1 p-2.5 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    @if (Password?.touched && Password?.invalid){
+                    @if (contrasena?.touched && contrasena?.invalid){
                       <div class="text-red-500 text-sm mt-1">
-                        @if (Password?.errors?.['required']) {
+                        @if (contrasena?.errors?.['required']) {
                           <p>El campo Contraseña es requerido.</p>
                         }
-                        @if (Password?.errors?.['minlength']) {
+                        @if (contrasena?.errors?.['minlength']) {
                           <p>La contraseña debe tener al menos 8 caracteres.</p>
                         }
                       </div>
