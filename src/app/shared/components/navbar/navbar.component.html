@@ -1,14 +1,125 @@
-<header class="bg-blue-400 shadow-2xs">
+<header class="p-4 bg-blue-600 rounded-b-md shadow-lg fixed w-full">
   <nav class="flex justify-between items-center">
+    <!-- Logo + Título -->
     <div class="flex items-center space-x-3">
-     <img src="logo.png" alt="" class="w-16 h-16 mx-auto rounded-full">
-     <h1 class="text-xl font-bold text-amber-50 mx-3">INSEDOMAU</h1>
+      <img src="logo.png" alt="" class="w-16 h-16 rounded-full">
+      <h1 class="text-xl font-bold text-white">Dolores Maria Ucros</h1>                  
     </div>
+
+    <!-- Botón hamburguesa solo en móvil -->
+    <button 
+      class="md:hidden text-blue-400 text-3xl cursor-pointer" 
+      (click)="toggleNavbar()"
+    >
+      ☰
+    </button>
+
+    
+
+    <!-- Menú horizontal en pantallas medianas o más grandes -->
+    <ul class="hidden md:flex space-x-6 text-white font-semibold">
+      @if (!estaAutenticado()) {
+          <li class="flex items-center space-x-1">
+            <mat-icon>home</mat-icon>
+            <a routerLink="home" class="hover:text-amber-300 transition duration-300">Home</a>
+          </li>
+          <li class="flex items-center space-x-1">
+            <mat-icon>help_outline</mat-icon>
+            <a href="" class="hover:text-amber-300 transition duration-300">Preguntas Frecuentes</a>
+          </li>
+          <li class="flex items-center space-x-1">
+            <mat-icon>email</mat-icon>
+            <a href="" class="hover:text-amber-300 transition duration-300">Contáctenos</a>
+          </li>
+          <li class="flex items-center space-x-1">
+            <mat-icon>person</mat-icon>
+            <a routerLink="/login" class="hover:text-amber-300 transition duration-300">Iniciar Sesión</a>
+          </li>
+        
+        
+      }
+      
+      
+      @if (estaAutenticado()) {
+        <li><a href="">Gestion Usuarios</a></li>
+      <li><a href="">Gestion de Estudiantes</a></li>
+      <li><a href="">Gestion de Docentes</a></li>
+      <li><a href="">Gestion de Cursos</a></li>
+      <li><a href="">Gestion de materias</a></li>
+      <li><a href="">Gestion de Notas</a></li>
+      }
+      
+      @if (estaAutenticado()) {
+        <li>
+          <a class="bg-blue-300 text-white px-4 py-2 rounded transition duration-1000 hover:bg-cyan-600 cursor-pointer"
+          (click)="cerrarSesion()"
+        >
+          Cerrar sesión
+        </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Menú colapsable solo en móviles -->
+  @if (navbarVisible && estaAutenticado()) {
+    <ul class="md:hidden mt-4 space-y-2 bg-blue-300 p-4 rounded text-white font-semibold">
+     <!-- <li><a href="#" (click)="navbarVisible = false">Inicio</a></li>--> 
      
-     <ul class="flex space-x-4">
-     </ul>
-   </nav>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion Usuarios</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion de Estudiantes</a>
+      </li>
+       <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion de Docentes</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion de Cursos</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion de materias</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" (click)="navbarVisible = false">Gestion de Notas</a>
+      </li>
+     
+     
+      @if (estaAutenticado()) {
+        <button 
+          class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
+          (click)="cerrarSesion()"
+        >
+          Cerrar sesión
+        </button>
+      }
+    </ul>
+  }
+  @if (navbarVisible && !estaAutenticado()) {
+    <ul class="md:hidden mt-4 space-y-2 bg-blue-300 p-4 rounded text-white font-semibold">
+      <li class="flex items-center space-x-1">
+        <mat-icon>home</mat-icon>
+        <a href="" class="text-black hover:text-cyan-400 transition duration-300"(click)="navbarVisible = false">Inicio</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>help_outline</mat-icon>
+        <a href="" class="text-black hover:text-cyan-400 transition duration-300"(click)="navbarVisible = false">Sobre Nosotros</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>email</mat-icon>
+        <a href="" class="text-black hover:text-cyan-400 transition duration-300"(click)="navbarVisible = false">Contacto</a>
+      </li>
+      <li class="flex items-center space-x-1">
+        <mat-icon>person</mat-icon>
+        <a href="" class="text-black hover:text-cyan-400 transition duration-300" (click)="navbarVisible = false">Iniciar Sesion</a>
+      </li>
+    </ul>
+  }
 </header>
-    
-  
-    

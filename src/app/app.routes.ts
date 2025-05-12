@@ -1,14 +1,21 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { AdministradorComponent } from './pages/administrador/administrador.component';
+import { AuthGuard } from './core/guards/administrador.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
    
 
     {
         path: '', 
-        redirectTo: 'login', 
+        redirectTo: 'home', 
         pathMatch: 'full'    
+    },
+
+    {
+        path: 'home',
+        component:  HomeComponent,
     },
 
     {
@@ -18,12 +25,14 @@ export const routes: Routes = [
 
     {
         path:'Administrador',
-        component: AdministradorComponent
+        component: AdministradorComponent,
+        canActivate: [AuthGuard],
+
     },
 
     {
         path:'**',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'full'
     }
 ];

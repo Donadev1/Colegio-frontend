@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
-import { Login } from '../../shared/interfaces/Login.interface';
+import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
-
+import { Login } from '../../../shared/interfaces/Login.interface';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +11,10 @@ export class AuthService {
 private ApiUrl:string;
 private AuthUrl:string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.ApiUrl = environment.apiUrl;
     this.AuthUrl ='auth/login';
+
   }
   
   login(login:Login): Observable<{token:string; rol:string}> {
@@ -38,6 +39,7 @@ private AuthUrl:string;
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
+    this.router.navigate(['/login']), {replaceUrl: true};
   }
 
   estaAutenticado(): boolean {

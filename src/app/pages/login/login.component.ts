@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import{FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms'; 
-import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Login } from '../../shared/interfaces/Login.interface';
 import Swal from 'sweetalert2';
+import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
