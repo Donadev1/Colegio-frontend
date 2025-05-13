@@ -106,7 +106,7 @@
     <ul class="md:hidden mt-4 space-y-2 bg-blue-300 p-4 rounded text-white font-semibold">
       <li class="flex items-center space-x-1">
         <mat-icon>home</mat-icon>
-        <a href="" class="text-black hover:text-cyan-400 transition duration-300"(click)="navbarVisible = false">Inicio</a>
+        <a routerLink="home" class="text-black hover:text-cyan-400 transition duration-300"(click)="navbarVisible = false">Inicio</a>
       </li>
       <li class="flex items-center space-x-1">
         <mat-icon>help_outline</mat-icon>
@@ -118,7 +118,7 @@
       </li>
       <li class="flex items-center space-x-1">
         <mat-icon>person</mat-icon>
-        <a href="" class="text-black hover:text-cyan-400 transition duration-300" (click)="navbarVisible = false">Iniciar Sesion</a>
+        <a routerLink="login" class="text-black hover:text-cyan-400 transition duration-300" (click)="navbarVisible = false">Iniciar Sesion</a>
       </li>
     </ul>
   }

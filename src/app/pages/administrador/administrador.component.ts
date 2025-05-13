@@ -9,5 +9,5 @@ import { SidebarComponent } from '../../shared/components/sidebar/sidebar.compon
   styleUrl: './administrador.component.css'
 })
 export class AdministradorComponent {
-
+  
 }

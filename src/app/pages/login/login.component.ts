@@ -52,6 +52,7 @@ export class LoginComponent {
               icon: 'success',
               confirmButtonText: 'Aceptar'
             })
+
         }else if (response.rol === 'Estudiante') {
             this.router.navigate(['/Estudiante']);
         }else if (response.rol === 'Docente') {
@@ -67,16 +68,26 @@ export class LoginComponent {
         },
         error:(error: any)=>{
           console.error('Error en el login', error);
-          alert('Error en el login');
+         const mensaje = error.error.mensaje || 'credenciales incorrectas';
+          Swal.fire({
+            title: 'Error',
+            text: mensaje,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          })
         }
     });
   
   } else {
       console.log('Formulario inválido');
+      Swal.fire({
+        title: 'Error',
+        text: 'Por favor, completa todos los campos correctamente.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+
     }
-    console.log(this.Loginform.errors);
-    console.log(this.correo?.errors);
-    console.log(this.contrasena?.errors);
   }
   onReset() {
     this.Loginform.reset();
