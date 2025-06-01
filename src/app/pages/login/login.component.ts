@@ -37,8 +37,10 @@ export class LoginComponent {
   }
   onSubmit() {
 
+
     if (this.Loginform.valid) {
       const loginData: Login = this.Loginform.value as Login;
+
       this.authService.login(loginData).subscribe({
         next:(response: any)=>{
           this.authService.guardarToken(response.token);
@@ -79,7 +81,7 @@ export class LoginComponent {
     });
   
   } else {
-      console.log('Formulario inválido');
+      console.error('Formulario inválido', this.Loginform.errors);
       Swal.fire({
         title: 'Error',
         text: 'Por favor, completa todos los campos correctamente.',

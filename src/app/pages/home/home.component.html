@@ -25,11 +25,22 @@
           <div class="grid gap-8 md:grid-cols-3">
             <!-- Tarjeta 1 -->
             <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
-              <img src="logo.png" alt="Rastreo" class="rounded mb-4">
-              <h3 class="font-semibold text-blue-600 mb-2">Educacion de Calidad</h3>
-              <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolores voluptatem, rerum mollitia, magnam nostrum quasi obcaecati labore ad doloremque suscipit ipsam praesentium quae sint at quidem. Ab, necessitatibus consectetur.</p>
-              <button class="mt-4 text-blue-600 border border-blue-600 rounded-full px-4 py-1 hover:bg-blue-600 hover:text-white transition cursor-pointer">Leer más</button>
+              <p-card>
+                <ng-template pTemplate="header">
+                    <img src="logo.png" alt="Rastreo" class="rounded-full mb-4">
+                    <h3 class="font-semibold text-blue-600">Rastreo y Monitoreo</h3>
+                </ng-template>
+                  <ng-template pTemplate="content">
+                    <p class="text-sm text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, aperiam inventore ut hic necessitatibus at exercitationem soluta natus obcaecati eaque quidem libero. Voluptatibus ipsam eos temporibus corrupti aliquam maiores consectetur!</p>
+                    </ng-template>
+                  <ng-template pTemplate="footer">
+                    <button class="mt-4 text-blue-600 border border-blue-600 rounded-full px-4 py-1 hover:bg-blue-600 hover:text-white transition cursor-pointer">Leer más</button>
+                  </ng-template>
+              </p-card>
             </div>
+
+
+            
     
             <!-- Tarjeta 2 -->
             <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
