@@ -4,6 +4,7 @@ import { AdministradorComponent } from './pages/administrador/administrador.comp
 import { AuthGuard } from './core/guards/administrador.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorComponent } from './shared/components/error/error.component';
+import { ContactenosComponent } from './pages/contactenos/contactenos.component';
 
 export const routes: Routes = [
    
@@ -29,6 +30,11 @@ export const routes: Routes = [
         component: AdministradorComponent,
         canActivate: [AuthGuard],
 
+    },
+
+    {
+        path:'contactenos',
+        component:ContactenosComponent
     },
 
     {

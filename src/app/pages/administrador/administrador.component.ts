@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
-import { SidebarComponent } from '../../shared/components/sidebar/sidebar.component';
+import { NavbarComponent } from "../../shared/components/navbar/navbar.component";
 
 @Component({
   selector: 'app-administrador',

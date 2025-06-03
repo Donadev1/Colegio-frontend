@@ -18,7 +18,7 @@ export class NavbarComponent {
   cerrarSesion() {
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
-    window.location.href = '/login';
+    window.location.href = '/home';
 
     
   }

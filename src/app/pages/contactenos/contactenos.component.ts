@@ -3,11 +3,11 @@ import { NavbarComponent } from "../../shared/components/navbar/navbar.component
 import { FooterComponent } from "../../shared/components/footer/footer.component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-contactenos',
   imports: [NavbarComponent, FooterComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './contactenos.component.html',
+  styleUrl: './contactenos.component.css'
 })
-export class HomeComponent {
+export class ContactenosComponent {
 
 }

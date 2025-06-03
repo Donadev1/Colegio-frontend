@@ -1,10 +1,18 @@
 <header class="p-4 bg-blue-600 rounded-b-md shadow-lg  w-full">
   <nav class="flex justify-between items-center">
     <!-- Logo + Título -->
-    <div class="flex items-center space-x-3">
+    @if (estaAutenticado()) {
+      <div class="flex items-center space-x-2">
+      <h1 class="text-xl font-bold text-white"></h1>
+    </div>
+    }@else{
+      <div class="flex items-center space-x-3">
       <img src="logo.png" alt="" class="w-16 h-16 rounded-full">
       <h1 class="text-xl font-bold text-white">Dolores Maria Ucros</h1>                  
     </div>
+    }
+    
+   
 
     <!-- Botón hamburguesa solo en móvil -->
     <button 
@@ -23,13 +31,10 @@
             <mat-icon>home</mat-icon>
             <a routerLink="/home" class="hover:text-amber-300 transition duration-300">Home</a>
           </li>
-          <li class="flex items-center space-x-1">
-            <mat-icon>help_outline</mat-icon>
-            <a href="" class="hover:text-amber-300 transition duration-300">Preguntas Frecuentes</a>
-          </li>
+          
           <li class="flex items-center space-x-1">
             <mat-icon>email</mat-icon>
-            <a href="" class="hover:text-amber-300 transition duration-300">Contáctenos</a>
+            <a routerLink="/contactenos" class="hover:text-amber-300 transition duration-300">Contáctenos</a>
           </li>
           <li class="flex items-center space-x-1">
             <mat-icon>person</mat-icon>
@@ -41,7 +46,10 @@
       
       
       @if (estaAutenticado()) {
-        <li><a href="">Gestion Usuarios</a></li>
+        <li class="flex items-center space-x-1">
+          <mat-icon>person</mat-icon>
+          <a  routerLink="" class ="hover:text-amber-300 transition duration-300">Gestion Usuarios</a>
+        </li>
       <li><a href="">Gestion de Estudiantes</a></li>
       <li><a href="">Gestion de Docentes</a></li>
       <li><a href="">Gestion de Cursos</a></li>

@@ -39,7 +39,7 @@ private AuthUrl:string;
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
-    this.router.navigate(['/login']), {replaceUrl: true};
+    this.router.navigate(['/home']), {replaceUrl: true};
   }
 
   estaAutenticado(): boolean {
