@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
+    production: false,
     apiUrl: 'https://api.example.com',
     authUrl: 'https://auth.example.com',
     apiKey: 'your-api-key',

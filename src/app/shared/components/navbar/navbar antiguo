@@ -1,0 +1,114 @@
+ <nav class="flex justify-between items-center">
+    <!-- Logo + Título -->
+
+    <div class="flex items-center space-x-3">
+      <img src="logo.png" alt="" class="w-16 h-16 rounded-full" />
+      <h1 class="text-4xl font-bold text-white">EDHONG</h1>
+    </div>
+
+    <!-- Botón hamburguesa solo en móvil -->
+    <button
+      class="md:hidden text-blue-400 text-3xl cursor-pointer"
+      (click)="toggleNavbar()"
+    >
+      ☰
+    </button>
+
+    <!-- Menú horizontal en pantallas medianas o más grandes -->
+    <ul class="hidden md:flex space-x-6 text-white font-semibold">
+      @if (!estaAutenticado()) {
+      <li class="flex items-center space-x-1">
+        <mat-icon>home</mat-icon>
+        <a
+          routerLink="/home"
+          class="hover:text-amber-300 transition duration-300"
+          >Home</a
+        >
+      </li>
+
+      <li class="flex items-center space-x-1">
+        <mat-icon>email</mat-icon>
+        <a
+          routerLink="/contactenos"
+          class="hover:text-amber-300 transition duration-300"
+          >Contáctenos</a
+        >
+      </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Menú colapsable solo en móviles -->
+  @if (navbarVisible && estaAutenticado()) {
+  <ul
+    class="md:hidden mt-4 space-y-2 bg-linear-65 from-red-500 to-blue-500 text-white font-semibold"
+  >
+    <!-- <li><a href="#" (click)="navbarVisible = false">Inicio</a></li>-->
+
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion Usuarios</a>
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion de Estudiantes</a>
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion de Docentes</a>
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion de Cursos</a>
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion de materias</a>
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>person</mat-icon>
+      <a href="" (click)="navbarVisible = false">Gestion de Notas</a>
+    </li>
+
+    @if (estaAutenticado()) {
+    <button
+      class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
+      (click)="cerrarSesion()"
+    >
+      Cerrar sesión
+    </button>
+    }
+  </ul>
+  } @if (navbarVisible && !estaAutenticado()) {
+  <ul
+    class="md:hidden mt-4 space-y-2 bg-linear-65 from-red-500 to-blue-500 p-4 rounded text-white font-semibold"
+  >
+    <li class="flex items-center space-x-1">
+      <mat-icon>home</mat-icon>
+      <a
+        routerLink="home"
+        class="text-black hover:text-cyan-400 transition duration-300"
+        (click)="navbarVisible = false"
+        >Inicio</a
+      >
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>help_outline</mat-icon>
+      <a
+        href=""
+        class="text-black hover:text-cyan-400 transition duration-300"
+        (click)="navbarVisible = false"
+        >Sobre Nosotros</a
+      >
+    </li>
+    <li class="flex items-center space-x-1">
+      <mat-icon>email</mat-icon>
+      <a
+        href=""
+        class="text-black hover:text-cyan-400 transition duration-300"
+        (click)="navbarVisible = false"
+        >Contacto</a
+      >
+    </li>
+  </ul>
+  }

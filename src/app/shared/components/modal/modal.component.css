@@ -1,0 +1,61 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  z-index: 11;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.animate-modal {
+  animation: fadeScale 0.35s ease forwards;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -47%) scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  gap: 25px;
+}
+
+.left img {
+  width: 320px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.right {
+  flex: 1;
+}

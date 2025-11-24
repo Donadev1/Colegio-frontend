@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="text-xl font-semibold text-blue-600">Editar Usuario</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardarCambios()" class="p-6 pt-4 flex flex-col gap-6 min-w-[300px]">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" placeholder="Ingresa el nombre del usuario" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Correo</mat-label>
+    <input matInput formControlName="correo" type="email" placeholder="correo@ejemplo.com" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Rol</mat-label>
+    <mat-select formControlName="rol">
+      @for (rol of rolesDisponibles; track rol) {
+        <mat-option [value]="rol">{{ rol }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <div class="flex justify-end gap-4 mt-2">
+    <button mat-stroked-button color="warn" type="button" (click)="dialogRef.close()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Guardar</button>
+  </div>
+</form>
